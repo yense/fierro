@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>Ferrocarril lista de precios</title>
+	<style>
+		/* Android 2.3 :checked fix */
+		@-webkit-keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+	-webkit-animation: fake 1s infinite;
+    animation: fake 1s infinite;
+    margin: 0px;
+  	padding: 0px;
+}
+
+.worko-tabs {  
+  width: 100%;  
+}
+.worko-tabs .state {
+  position: absolute;
+  left: -10000px;
+}
+.worko-tabs .flex-tabs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.worko-tabs .flex-tabs .tab {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-height: 40px;
+}
+.worko-tabs .flex-tabs .panel {
+  background-color: #fff;  
+  min-height: 300px;
+  display: none;
+  width: 100%;
+  -webkit-flex-basis: auto;
+      -ms-flex-preferred-size: auto;
+          flex-basis: auto;
+}
+.worko-tabs .tab {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  background-color: #eee;
+  cursor: hand;
+  cursor: pointer;
+  border-left: 10px solid #ccc;
+}
+.worko-tabs .tab:hover {
+  background-color: #fff;
+}
+
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label {
+  background-color: #fff;
+  cursor: default;
+  border-left-color: #69be28;
+}
+
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel {
+  display: block;
+}
+
+@media (max-width: 300px) {
+  .flex-tabs {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .flex-tabs .tab {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  .flex-tabs .tab:last-of-type {
+    border-bottom: none;
+  }
+  .flex-tabs #tab-one-label {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .flex-tabs #tab-two-label {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .flex-tabs #tab-three-label {
+    -webkit-box-ordinal-group: 6;
+    -webkit-order: 5;
+        -ms-flex-order: 5;
+            order: 5;
+  }
+  .flex-tabs #tab-four-label {
+    -webkit-box-ordinal-group: 8;
+    -webkit-order: 7;
+        -ms-flex-order: 7;
+            order: 7;
+  }
+  .flex-tabs #tab-one-panel {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .flex-tabs #tab-two-panel {
+    -webkit-box-ordinal-group: 5;
+    -webkit-order: 4;
+        -ms-flex-order: 4;
+            order: 4;
+  }
+  .flex-tabs #tab-three-panel {
+    -webkit-box-ordinal-group: 7;
+    -webkit-order: 6;
+        -ms-flex-order: 6;
+            order: 6;
+  }
+  .flex-tabs #tab-four-panel {
+    -webkit-box-ordinal-group: 9;
+    -webkit-order: 8;
+        -ms-flex-order: 8;
+            order: 8;
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-label,
+  #tab-two:checked ~ .tabs #tab-two-label,
+  #tab-three:checked ~ .tabs #tab-three-label,
+  #tab-four:checked ~ .tabs #tab-four-label {
+    border-bottom: none;
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-panel,
+  #tab-two:checked ~ .tabs #tab-two-panel,
+  #tab-three:checked ~ .tabs #tab-three-panel,
+  #tab-four:checked ~ .tabs #tab-four-panel {
+    border-bottom: 1px solid #ccc;
+  }
+}
+		textarea {
+			padding: 10px;
+			border: 0.1em solid #ccc;
+			border-radius: 0.5em;
+			display: block;
+			width: 100%;			
+		}
+
+		input[type="submit"]{
+			background: #3498db;
+			background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+			  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+			  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+			  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+			  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+			  -webkit-border-radius: 28;
+			  -moz-border-radius: 28;
+			  border-radius: 28px;
+			  font-family: Arial;
+			  color: #ffffff;
+			  font-size: 20px;
+			  padding: 10px 20px 10px 20px;
+			  text-decoration: none;
+		}
+		.producto{
+			padding: 10px;
+		}
+		.producto:nth-child(odd) {
+			background-color: #ccc;
+		}
+		.producto:nth-child(even) {
+			background-color: #fff;
+		}
+	</style>
+	<script src="dexie.js"></script>
+</head>
+<body>
+	<div class="worko-tabs">
+  
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" checked />
+    <input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
+    
+
+    <div class="tabs flex-tabs">
+        <label for="tab-one" id="tab-one-label" class="tab">LISTA PRODCUTOS</label>
+        <label for="tab-two" id="tab-two-label" class="tab">AGREGAR</label>
+        
+
+
+        <div id="tab-one-panel" class="panel active">
+          
+        </div>
+        <div id="tab-two-panel" class="panel">
+            <div class="agregar">
+            <form action="" onsubmit="agregar();">
+            	<textarea name="producto" id="producto" cols="30" rows="10" placeholder="Agrege Producto" autofocus required></textarea>
+            	<input type="submit" value="Agregar">
+            </form>
+            </div>
+        </div>        
+    </div>
+</div>
+<script>	
+	var db = new Dexie("PreciosFerrocarril");
+	db.version(1).stores({
+    	productos: '++pro_id , Detalles , fecha',                
+	});
+
+	db.open().catch(function (e) {
+    	alert ("Open failed: " + e);
+	});
+
+	db.productos.count(e => {
+		if (e > 0){
+			//alert("existe productos");			
+			mostrar();
+		}else{			
+			document.querySelector("#tab-one-panel").innerHTML = "<h1>AGREGE PRODUCTOS</h1>";
+		}
+	});
+
+	function agregar() {		
+		var tex = document.querySelector("#producto").value;
+		/*db.transaction('rw',db.productos,function(){
+			 db.productos.add({Detalles: text, fecha: new Date()});
+		}).then(function () {
+			 alert("se agrego") 
+		}).catch(function (err) {
+			 alert(err.stack);
+		});*/
+		db.productos.add({
+			Detalles : `${tex}`,
+			fecha : new Date()
+		});
+		alert(`Se agrego ${tex}`);
+	}
+
+	function mostrar() {
+		var molde = ``;
+		 db.productos.each(pro => {
+		 	var deta = pro.Detalles, fech = pro.fecha;
+		 	deta = deta.replace(/\r?\n/g, "<br>");		 	
+		 	molde = molde + `<div class="producto">${deta}<label>${fech}</label></div>`;		 	
+		 	/*alert(`${deta} ${fech}`);
+		 	var a = document.createElement("div");
+		 	var t = document.createTextNode(`${deta}<label>${fech}</label>`);
+		 	a.appendChild(t);
+		 	var aa = document.querySelector("#tab-one-panel");
+		 	aa.innerHTML=`${deta}<label>${fech}</label>`;*/
+		 }).then(function () {		 	
+		 	document.querySelector("#tab-one-panel").innerHTML = molde;
+		 });
+		 
+	}	
+
+	function editar (id) {
+		 // body...  
+	}
+</script>
+</body>
+</html>
